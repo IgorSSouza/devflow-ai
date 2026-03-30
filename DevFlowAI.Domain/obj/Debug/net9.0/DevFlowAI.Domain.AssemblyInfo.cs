@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevFlowAI.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cae77f1336150a4ba04c986422b70ad1e24ec9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+310fda2d362109f16ee9e5883a75d6b84a3b49e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevFlowAI.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevFlowAI.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
