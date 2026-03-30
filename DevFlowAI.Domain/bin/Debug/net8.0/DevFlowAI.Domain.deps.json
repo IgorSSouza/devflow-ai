@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DevFlowAI.Domain/1.0.0": {
+        "runtime": {
+          "DevFlowAI.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DevFlowAI.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

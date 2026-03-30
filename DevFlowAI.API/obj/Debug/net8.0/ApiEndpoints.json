@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "DevFlowAI.API.Controllers.TasksController",
+    "Method": "Create",
+    "RelativePath": "api/Tasks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
