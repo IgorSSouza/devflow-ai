@@ -4,6 +4,14 @@
     <ProjectReference Include="..\DevFlowAI.Domain\DevFlowAI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Features\Tasks\Commands\" />
+    <Folder Include="Features\Tasks\DTOs\" />
+    <Folder Include="Features\Tasks\Queries\" />
+    <Folder Include="DependencyInjection\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
