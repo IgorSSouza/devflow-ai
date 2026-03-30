@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevFlowAI.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+943a7d7bd29aa83f9474cb11f154e0b009f2e2ce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+310fda2d362109f16ee9e5883a75d6b84a3b49e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevFlowAI.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevFlowAI.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
