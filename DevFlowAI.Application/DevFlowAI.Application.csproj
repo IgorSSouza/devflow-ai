@@ -9,6 +9,8 @@
     <Folder Include="Features\Tasks\DTOs\" />
     <Folder Include="Features\Tasks\Queries\" />
     <Folder Include="DependencyInjection\" />
+    <Folder Include="Features\Workspaces\DTOs\" />
+    <Folder Include="Features\Workspaces\Queries\" />
   </ItemGroup>
 
   <PropertyGroup>
