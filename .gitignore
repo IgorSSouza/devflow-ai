@@ -1,30 +1,19 @@
-﻿################################################################################
-# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
-################################################################################
+﻿## Build results
+bin/
+obj/
 
-/.vs
-/.vs/devflow-ai
-/.vs/devflow-ai/CopilotIndices/17.14.670.39694
-/.vs/devflow-ai/CopilotIndices/17.14.670.39694/CodeChunks.db
-/.vs/devflow-ai/CopilotIndices/17.14.670.39694/SemanticSymbols.db
-/.vs/devflow-ai/FileContentIndex
-/.vs/devflow-ai/FileContentIndex/65946a2c-f667-49ef-9d19-59f0a886e884.vsidx
-/.vs/devflow-ai/FileContentIndex/9ea7448d-b75f-4046-b617-10940dff0897.vsidx
-/.vs/devflow-ai/FileContentIndex/bdd76784-6943-4ae9-bb6f-d0861f52b28e.vsidx
-/.vs/devflow-ai/FileContentIndex/c14fa45a-ebc2-4f8f-8274-72cf5b458720.vsidx
-/.vs/devflow-ai/FileContentIndex/c770c675-2bad-43f7-b57b-968f8cd09d95.vsidx
-/.vs/devflow-ai/v17
-/.vs/devflow-ai/v17/.wsuo
-/.vs/devflow-ai/v17/DocumentLayout.json
-/.vs/DevFlowAI
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/CodeChunks.db
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/CodeChunks.db-shm
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/CodeChunks.db-wal
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/SemanticSymbols.db
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/SemanticSymbols.db-shm
-/.vs/DevFlowAI/CopilotIndices/17.14.670.39694/SemanticSymbols.db-wal
-/.vs/DevFlowAI/FileContentIndex
-/.vs/DevFlowAI/FileContentIndex/00e95ad8-17c2-46c3-877b-e9c13860eb02.vsidx
-/.vs/slnx.sqlite
-/.vs/VSWorkspaceState.json
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Rider / VSCode
+.idea/
+.vscode/
+
+## Logs
+*.log
+
+## OS
+.DS_Store
+Thumbs.db
