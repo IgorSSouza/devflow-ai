@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlowAI.API", "DevFlowAI.API\DevFlowAI.API.csproj", "{89684B40-447B-4831-91EB-BE08AD71BBCB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5AB3D80E-34D2-4B92-88B8-C835C602D9AE} = {5AB3D80E-34D2-4B92-88B8-C835C602D9AE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFlowAI.Domain", "DevFlowAI.Domain\DevFlowAI.Domain.csproj", "{7413477C-6A06-4238-BD1A-2670D313DF91}"
 EndProject

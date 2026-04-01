@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevFlowAI.Application\DevFlowAI.Application.csproj" />
+    <ProjectReference Include="..\DevFlowAI.Infrastructure\DevFlowAI.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
