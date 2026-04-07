@@ -4,7 +4,7 @@ using MediatR;
 
 namespace DevFlowAI.Application.Features.Workspaces.Commands.CreateWorkspace;
 
-public class CreateWorkspaceHandler : IRequestHandler<CreateWorkspaceCommand>
+public class CreateWorkspaceHandler : IRequestHandler<CreateWorkspaceCommand, Guid>
 {
     private readonly IWorkspaceRepository _repository;
 
@@ -13,10 +13,12 @@ public class CreateWorkspaceHandler : IRequestHandler<CreateWorkspaceCommand>
         _repository = repository;
     }
 
-    public async Task Handle(CreateWorkspaceCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateWorkspaceCommand request, CancellationToken cancellationToken)
     {
         var workspace = new Workspace(request.Name);
 
         await _repository.AddAsync(workspace);
+
+        return workspace.Id;
     }
 }

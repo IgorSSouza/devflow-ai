@@ -18,7 +18,7 @@ public class WorkspacesController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateWorkspaceCommand command)
     {
-        await _mediator.Send(command);
-        return Ok("Workspace criado com sucesso");
+        var id = await _mediator.Send(command);
+        return Ok(new { id });
     }
 }
