@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using DevFlowAI.Application.Behaviors;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +14,8 @@ public static class ApplicationDI
                 cfg.RegisterServicesFromAssembly(typeof(ApplicationDI).Assembly));
 
         services.AddValidatorsFromAssembly(typeof(ApplicationDI).Assembly);
+
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
         return services;
     }
