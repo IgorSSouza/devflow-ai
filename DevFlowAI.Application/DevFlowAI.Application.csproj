@@ -8,8 +8,6 @@
     <Folder Include="Abstractions\" />
     <Folder Include="Features\Tasks\DTOs\" />
     <Folder Include="Features\Tasks\Queries\" />
-    <Folder Include="Features\Workspaces\DTOs\" />
-    <Folder Include="Features\Workspaces\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

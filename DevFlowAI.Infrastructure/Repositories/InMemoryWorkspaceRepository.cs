@@ -12,4 +12,8 @@ public class InMemoryWorkspaceRepository : IWorkspaceRepository
         _workspaces.Add(workspace);
         return Task.CompletedTask;
     }
+    public Task<List<Workspace>> GetAllAsync()
+    {
+        return Task.FromResult(_workspaces);
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using DevFlowAI.Application.Features.Workspaces.Commands.CreateWorkspace;
+using DevFlowAI.Application.Features.Workspaces.Queries.GetAllWorkspaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +21,12 @@ public class WorkspacesController : ControllerBase
     {
         var id = await _mediator.Send(command);
         return Ok(new { id });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var workspaces = await _mediator.Send(new GetAllWorkspacesQuery());
+        return Ok(workspaces);
     }
 }
