@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DevFlowAI.Application.DependencyInjection;
@@ -10,6 +11,8 @@ public static class ApplicationDI
     {
         services.AddMediatR(cfg =>
                 cfg.RegisterServicesFromAssembly(typeof(ApplicationDI).Assembly));
+
+        services.AddValidatorsFromAssembly(typeof(ApplicationDI).Assembly);
 
         return services;
     }
