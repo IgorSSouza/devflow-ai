@@ -1,6 +1,7 @@
 using DevFlowAI.API.Extensions;
 using DevFlowAI.Application.DependencyInjection;
 using DevFlowAI.Infrastructure.DependencyInjection;
+using DevFlowAI.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthorization();
 
