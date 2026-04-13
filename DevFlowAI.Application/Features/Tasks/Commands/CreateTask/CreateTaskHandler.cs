@@ -1,7 +1,10 @@
 ﻿using DevFlowAI.Domain.Entities;
 using DevFlowAI.Domain.Interfaces;
+using MediatR;
 
-public class CreateTaskHandler
+namespace DevFlowAI.Application.Features.Tasks.Commands.CreateTask;
+
+public class CreateTaskHandler : IRequestHandler<CreateTaskCommand, Guid>
 {
     private readonly ITaskRepository _repository;
 
@@ -10,9 +13,15 @@ public class CreateTaskHandler
         _repository = repository;
     }
 
-    public async Task Execute(CreateTaskCommand command)
+    public async Task<Guid> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
     {
-        var task = new TaskItem(command.Title, command.Description);
+        var task = new TaskItem(
+            request.WorkspaceId,
+            request.Title,
+            request.Description);
+
         await _repository.AddAsync(task);
+
+        return task.Id;
     }
 }

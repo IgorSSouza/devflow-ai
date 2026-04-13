@@ -6,10 +6,10 @@ namespace DevFlowAI.Infrastructure.DependencyInjection;
 
 public static class InfrastructureDI
 {
-    public static IServiceCollection AddInfrastructure(
-        this IServiceCollection services)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
         services.AddScoped<IWorkspaceRepository, InMemoryWorkspaceRepository>();
+        services.AddScoped<ITaskRepository, InMemoryTaskRepository>();
 
         return services;
     }
