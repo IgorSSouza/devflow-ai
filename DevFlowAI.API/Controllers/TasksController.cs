@@ -1,4 +1,5 @@
 ﻿using DevFlowAI.Application.Features.Tasks.Commands.CreateTask;
+using DevFlowAI.Application.Features.Tasks.Queries.GetTasksByWorkspace;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +21,12 @@ public class TasksController : ControllerBase
     {
         var id = await _mediator.Send(command);
         return Ok(new { id });
+    }
+
+    [HttpGet("workspace/{workspaceId:guid}")]
+    public async Task<IActionResult> GetByWorkspace(Guid workspaceId)
+    {
+        var tasks = await _mediator.Send(new GetTasksByWorkspaceQuery(workspaceId));
+        return Ok(tasks);
     }
 }

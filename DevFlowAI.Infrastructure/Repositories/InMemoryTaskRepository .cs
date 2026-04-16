@@ -17,4 +17,13 @@ public class InMemoryTaskRepository : ITaskRepository
     {
         return Task.FromResult(_tasks);
     }
+
+    public Task<List<TaskItem>> GetByWorkspaceIdAsync(Guid workspaceId)
+    {
+        var tasks = _tasks
+            .Where(task => task.WorkspaceId == workspaceId)
+            .ToList();
+
+        return Task.FromResult(tasks);
+    }
 }
