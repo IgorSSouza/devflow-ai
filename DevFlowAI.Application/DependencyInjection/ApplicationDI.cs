@@ -7,11 +7,9 @@ namespace DevFlowAI.Application.DependencyInjection;
 
 public static class ApplicationDI
 {
-    public static IServiceCollection AddApplication(
-        this IServiceCollection services)
+    public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddMediatR(cfg =>
-                cfg.RegisterServicesFromAssembly(typeof(ApplicationDI).Assembly));
+        services.AddMediatR(typeof(ApplicationDI).Assembly);
 
         services.AddValidatorsFromAssembly(typeof(ApplicationDI).Assembly);
 
