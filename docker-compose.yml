@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: devflow-postgres
+    environment:
+      POSTGRES_DB: devflowai
+      POSTGRES_USER: devflow
+      POSTGRES_PASSWORD: devflow123
+    ports:
+      - "5432:5432"
+    volumes:
+      - devflow_postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: DevFlowAI.API/Dockerfile
+    container_name: devflow-api
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=devflowai;Username=devflow;Password=devflow123
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+volumes:
+  devflow_postgres_data:
