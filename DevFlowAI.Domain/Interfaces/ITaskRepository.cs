@@ -7,4 +7,6 @@ public interface ITaskRepository
     Task AddAsync(TaskItem task);
     Task<List<TaskItem>> GetAllAsync();
     Task<List<TaskItem>> GetByWorkspaceIdAsync(Guid workspaceId);
+    Task<TaskItem?> GetByIdAsync(Guid id);
+    Task UpdateAsync(TaskItem task);
 }

@@ -1,4 +1,5 @@
-﻿using DevFlowAI.Application.Features.Tasks.Commands.CreateTask;
+﻿using DevFlowAI.Application.Features.Tasks.Commands.CompleteTask;
+using DevFlowAI.Application.Features.Tasks.Commands.CreateTask;
 using DevFlowAI.Application.Features.Tasks.Queries.GetTasksByWorkspace;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,5 +29,12 @@ public class TasksController : ControllerBase
     {
         var tasks = await _mediator.Send(new GetTasksByWorkspaceQuery(workspaceId));
         return Ok(tasks);
+    }
+
+    [HttpPatch("{taskId:guid}/complete")]
+    public async Task<IActionResult> Complete(Guid taskId)
+    {
+        await _mediator.Send(new CompleteTaskCommand(taskId));
+        return Ok(new { message = "Tarefa concluída com sucesso." });
     }
 }
