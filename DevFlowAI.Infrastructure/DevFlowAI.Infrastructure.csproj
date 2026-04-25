@@ -5,10 +5,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ExternalServices\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.26" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.26">
       <PrivateAssets>all</PrivateAssets>

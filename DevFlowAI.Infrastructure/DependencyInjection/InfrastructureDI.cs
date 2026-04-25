@@ -1,4 +1,6 @@
-﻿using DevFlowAI.Domain.Interfaces;
+﻿using DevFlowAI.Application.Features.AI.Services;
+using DevFlowAI.Domain.Interfaces;
+using DevFlowAI.Infrastructure.ExternalServices;
 using DevFlowAI.Infrastructure.Persistence;
 using DevFlowAI.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,7 @@ public static class InfrastructureDI
 
         services.AddScoped<IWorkspaceRepository, WorkspaceRepository>();
         services.AddScoped<ITaskRepository, TaskRepository>();
+        services.AddScoped<IAiPlanGenerator, FakeAiPlanGenerator>();
 
         return services;
     }
