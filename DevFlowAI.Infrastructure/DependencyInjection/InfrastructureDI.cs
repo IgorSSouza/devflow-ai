@@ -1,6 +1,7 @@
 ﻿using DevFlowAI.Application.Features.AI.Services;
 using DevFlowAI.Domain.Interfaces;
 using DevFlowAI.Infrastructure.ExternalServices;
+using DevFlowAI.Infrastructure.ExternalServices.OpenAI;
 using DevFlowAI.Infrastructure.Persistence;
 using DevFlowAI.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,8 @@ public static class InfrastructureDI
     {
         services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+        services.Configure<OpenAiOptions>(options =>
+            configuration.GetSection("OpenAI").Bind(options));
 
         services.AddScoped<IWorkspaceRepository, WorkspaceRepository>();
         services.AddScoped<ITaskRepository, TaskRepository>();
