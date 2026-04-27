@@ -8,7 +8,7 @@ public class TaskItem
     public string Description { get; private set; }
     public bool Completed { get; private set; }
     public DateTime CreatedAt { get; private set; }
-
+    public DateTime? CompletedAt { get; private set; }
     private TaskItem() { }
 
     public TaskItem(Guid workspaceId, string title, string description)
@@ -19,10 +19,15 @@ public class TaskItem
         Description = description;
         CreatedAt = DateTime.UtcNow;
         Completed = false;
+        CompletedAt = null;
     }
 
     public void Complete()
     {
+        if (Completed)
+            return;
+
         Completed = true;
+        CompletedAt = DateTime.UtcNow;
     }
 }

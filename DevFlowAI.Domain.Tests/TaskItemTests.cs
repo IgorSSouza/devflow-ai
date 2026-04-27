@@ -20,6 +20,7 @@ public class TaskItemTests
         task.Title.Should().Be("Estudar testes");
         task.Description.Should().Be("Aprender testes unitários");
         task.Completed.Should().BeFalse();
+        task.CompletedAt.Should().BeNull();
         task.CreatedAt.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromSeconds(5));
     }
 
@@ -35,5 +36,6 @@ public class TaskItemTests
 
         // Assert
         task.Completed.Should().BeTrue();
+        task.CompletedAt.Should().NotBeNull();
     }
 }

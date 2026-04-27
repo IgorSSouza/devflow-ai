@@ -46,6 +46,8 @@ public class AppDbContext : DbContext
 
             entity.Property(x => x.CreatedAt)
                 .IsRequired();
+
+            entity.Property(x => x.CompletedAt);
         });
     }
 }
