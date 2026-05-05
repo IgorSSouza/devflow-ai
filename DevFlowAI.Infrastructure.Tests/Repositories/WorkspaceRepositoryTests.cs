@@ -12,6 +12,7 @@ public class WorkspaceRepositoryTests
     {
         // Arrange
         await using var context = TestDbContextFactory.Create();
+        await TestDatabaseCleaner.CleanAsync(context);
         var repository = new WorkspaceRepository(context);
 
         var workspace = new Workspace($"Workspace Teste {Guid.NewGuid()}");

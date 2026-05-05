@@ -14,6 +14,7 @@ public class TaskRepositoryTests
         await using var context = TestDbContextFactory.Create();
 
         var workspaceRepository = new WorkspaceRepository(context);
+        await TestDatabaseCleaner.CleanAsync(context);
         var taskRepository = new TaskRepository(context);
 
         var workspace = new Workspace($"Workspace Task Test {Guid.NewGuid()}");
