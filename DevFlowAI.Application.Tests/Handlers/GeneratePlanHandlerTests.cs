@@ -4,6 +4,7 @@ using DevFlowAI.Application.Features.AI.Services;
 using DevFlowAI.Domain.Entities;
 using DevFlowAI.Domain.Interfaces;
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
 using Moq;
 
 namespace DevFlowAI.Application.Tests.Handlers;
@@ -12,22 +13,24 @@ public class GeneratePlanHandlerTests
 {
     private readonly Mock<IAiPlanGenerator> _aiPlanGeneratorMock;
     private readonly Mock<ITaskRepository> _taskRepositoryMock;
+    private readonly Mock<ILogger<GeneratePlanHandler>> _loggerMock;
     private readonly GeneratePlanHandler _handler;
 
     public GeneratePlanHandlerTests()
     {
         _aiPlanGeneratorMock = new Mock<IAiPlanGenerator>();
         _taskRepositoryMock = new Mock<ITaskRepository>();
+        _loggerMock = new Mock<ILogger<GeneratePlanHandler>>();
 
         _handler = new GeneratePlanHandler(
             _aiPlanGeneratorMock.Object,
-            _taskRepositoryMock.Object);
+            _taskRepositoryMock.Object,
+            _loggerMock.Object);
     }
 
     [Fact]
     public async Task Should_Generate_And_Save_Tasks_From_Goal()
     {
-        // Arrange
         var workspaceId = Guid.NewGuid();
 
         var command = new GeneratePlanCommand
@@ -61,10 +64,8 @@ public class GeneratePlanHandlerTests
             .Callback<TaskItem>(task => savedTasks.Add(task))
             .Returns(Task.CompletedTask);
 
-        // Act
         var result = await _handler.Handle(command, CancellationToken.None);
 
-        // Assert
         result.Should().HaveCount(2);
         savedTasks.Should().HaveCount(2);
 

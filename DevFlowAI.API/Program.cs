@@ -2,8 +2,20 @@ using DevFlowAI.API.Extensions;
 using DevFlowAI.Application.DependencyInjection;
 using DevFlowAI.Infrastructure.DependencyInjection;
 using DevFlowAI.API.Middlewares;
+using Serilog;
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .WriteTo.Console()
+    .WriteTo.File(
+        "logs/devflowai-.txt",
+        rollingInterval: RollingInterval.Day,
+        retainedFileCountLimit: 7)
+    .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog();
 
 // Services
 builder.Services.AddApi();
