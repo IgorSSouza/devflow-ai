@@ -19,3 +19,5 @@ DevFlowAI.API/logs/
 .DS_Store
 Thumbs.db
 
+# Local development settings
+DevFlowAI.API/appsettings.Development.json
