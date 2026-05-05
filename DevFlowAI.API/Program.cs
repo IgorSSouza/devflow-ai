@@ -29,12 +29,12 @@ app.UseSwaggerUI();
 
 //app.UseHttpsRedirection();
 
+app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.MapHealthChecks("/health");
 
 app.Run();
