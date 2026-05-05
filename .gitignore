@@ -13,6 +13,7 @@ obj/
 
 ## Logs
 *.log
+DevFlowAI.API/logs/
 
 ## OS
 .DS_Store
