@@ -2,6 +2,7 @@
 using DevFlowAI.Infrastructure.Repositories;
 using DevFlowAI.Infrastructure.Tests.Persistence;
 using FluentAssertions;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevFlowAI.Infrastructure.Tests.Repositories;
 
@@ -19,7 +20,7 @@ public class WorkspaceRepositoryTests : IClassFixture<PostgresContainerFixture>
     {
         // Arrange
         await using var context = TestDbContextFactory.Create(_fixture.ConnectionString);
-        await context.Database.EnsureCreatedAsync();
+        await context.Database.MigrateAsync();
         await TestDatabaseCleaner.CleanAsync(context);
 
         var repository = new WorkspaceRepository(context);
