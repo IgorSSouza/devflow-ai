@@ -30,3 +30,6 @@ jobs:
 
       - name: Run tests
         run: dotnet test DevFlowAI.sln --configuration Release --no-build --verbosity normal
+        
+      - name: Build Docker image
+        run: docker build -f DevFlowAI.API/Dockerfile -t devflow-api .
