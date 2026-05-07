@@ -5,16 +5,24 @@ using FluentAssertions;
 
 namespace DevFlowAI.Infrastructure.Tests.Repositories;
 
-public class TaskRepositoryTests
+public class TaskRepositoryTests : IClassFixture<PostgresContainerFixture>
 {
+    private readonly PostgresContainerFixture _fixture;
+
+    public TaskRepositoryTests(PostgresContainerFixture fixture)
+    {
+        _fixture = fixture;
+    }
+
     [Fact]
     public async Task AddAsync_And_GetByWorkspaceIdAsync_Should_Persist_And_Return_Task()
     {
         // Arrange
-        await using var context = TestDbContextFactory.Create();
+        await using var context = TestDbContextFactory.Create(_fixture.ConnectionString);
+        await context.Database.EnsureCreatedAsync();
+        await TestDatabaseCleaner.CleanAsync(context);
 
         var workspaceRepository = new WorkspaceRepository(context);
-        await TestDatabaseCleaner.CleanAsync(context);
         var taskRepository = new TaskRepository(context);
 
         var workspace = new Workspace($"Workspace Task Test {Guid.NewGuid()}");
@@ -40,7 +48,9 @@ public class TaskRepositoryTests
     public async Task GetByIdAsync_Should_Return_Task_When_Task_Exists()
     {
         // Arrange
-        await using var context = TestDbContextFactory.Create();
+        await using var context = TestDbContextFactory.Create(_fixture.ConnectionString);
+        await context.Database.EnsureCreatedAsync();
+        await TestDatabaseCleaner.CleanAsync(context);
 
         var workspaceRepository = new WorkspaceRepository(context);
         var taskRepository = new TaskRepository(context);
@@ -68,7 +78,9 @@ public class TaskRepositoryTests
     public async Task UpdateAsync_Should_Persist_Completed_And_CompletedAt()
     {
         // Arrange
-        await using var context = TestDbContextFactory.Create();
+        await using var context = TestDbContextFactory.Create(_fixture.ConnectionString);
+        await context.Database.EnsureCreatedAsync();
+        await TestDatabaseCleaner.CleanAsync(context);
 
         var workspaceRepository = new WorkspaceRepository(context);
         var taskRepository = new TaskRepository(context);

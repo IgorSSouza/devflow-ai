@@ -5,14 +5,23 @@ using FluentAssertions;
 
 namespace DevFlowAI.Infrastructure.Tests.Repositories;
 
-public class WorkspaceRepositoryTests
+public class WorkspaceRepositoryTests : IClassFixture<PostgresContainerFixture>
 {
+    private readonly PostgresContainerFixture _fixture;
+
+    public WorkspaceRepositoryTests(PostgresContainerFixture fixture)
+    {
+        _fixture = fixture;
+    }
+
     [Fact]
     public async Task AddAsync_And_GetAllAsync_Should_Persist_And_Return_Workspace()
     {
         // Arrange
-        await using var context = TestDbContextFactory.Create();
+        await using var context = TestDbContextFactory.Create(_fixture.ConnectionString);
+        await context.Database.EnsureCreatedAsync();
         await TestDatabaseCleaner.CleanAsync(context);
+
         var repository = new WorkspaceRepository(context);
 
         var workspace = new Workspace($"Workspace Teste {Guid.NewGuid()}");

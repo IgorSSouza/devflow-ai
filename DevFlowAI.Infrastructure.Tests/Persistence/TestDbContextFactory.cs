@@ -5,10 +5,10 @@ namespace DevFlowAI.Infrastructure.Tests.Persistence;
 
 public static class TestDbContextFactory
 {
-    public static AppDbContext Create()
+    public static AppDbContext Create(string connectionString)
     {
         var options = new DbContextOptionsBuilder<AppDbContext>()
-            .UseNpgsql("Host=localhost;Port=5432;Database=devflowai;Username=devflow;Password=devflow123")
+            .UseNpgsql(connectionString)
             .Options;
 
         return new AppDbContext(options);
