@@ -1,125 +1,113 @@
 ﻿# 🚀 DevFlow AI
 
-> Plataforma inteligente de gestão de tarefas com Inteligência Artificial  
-> Construída como projeto de evolução técnica rumo ao nível **Senior Software Engineer**.
+> Plataforma inteligente de gestão de tarefas com suporte a geração de planos por IA.  
+> Projeto construído como laboratório técnico para evolução em arquitetura, backend, testes, observabilidade, Docker e CI/CD.
 
 ---
 
 ## 🧠 Visão do Produto
 
-Equipes de desenvolvimento frequentemente enfrentam desafios como:
+Equipes e desenvolvedores frequentemente enfrentam desafios como:
 
-- dificuldade para iniciar projetos e tarefas
-- planejamento inconsistente
-- perda de produtividade
-- excesso de tempo gasto organizando trabalho em vez de executar
+- dificuldade para transformar objetivos em tarefas executáveis;
+- planejamento inconsistente;
+- perda de produtividade;
+- excesso de tempo gasto organizando trabalho;
+- falta de visibilidade sobre progresso e execução.
 
-### 💡 A Solução
+## 💡 A Solução
 
-**DevFlow AI** é uma plataforma que combina gestão de tarefas com Inteligência Artificial para transformar objetivos em execução estruturada.
+**DevFlow AI** é uma plataforma que combina gestão de tarefas com uma camada de inteligência para transformar objetivos em planos de execução.
 
-O usuário simplesmente descreve um objetivo, e o sistema:
+O usuário descreve um objetivo e o sistema:
 
-✅ gera automaticamente um plano de execução  
-✅ organiza tarefas e prioridades  
-✅ estrutura o fluxo de trabalho  
-✅ apresenta insights inteligentes em dashboard  
+- gera um plano inicial de tarefas;
+- organiza essas tarefas em um workspace;
+- permite acompanhar e concluir atividades;
+- prepara a base para futuras integrações reais com provedores de IA;
+- expõe uma API estruturada, testável e pronta para evolução.
+
+---
+
+## 🎯 Objetivo Técnico do Projeto
+
+Este projeto foi criado para praticar engenharia de software moderna em um cenário realista, com foco em:
+
+- Clean Architecture;
+- Domain-Driven Design;
+- CQRS com MediatR;
+- validação com pipeline behavior;
+- testes unitários e de integração;
+- persistência com PostgreSQL;
+- Docker e Docker Compose;
+- observabilidade básica;
+- CI/CD com GitHub Actions;
+- publicação de imagem Docker no GitHub Container Registry;
+- preparação para deploy em cloud.
+
+O foco não é apenas criar uma API, mas desenvolver raciocínio técnico de backend e arquitetura em nível mais avançado.
 
 ---
 
 ## 🧩 Domínios do Sistema
 
-O sistema é projetado seguindo princípios de **Domain-Driven Design (DDD)** com separação clara de contextos:
-
 | Domínio | Responsabilidade |
 |---|---|
-| 🔐 **Identity** | Usuários, autenticação e permissões |
-| 🏢 **Workspace** | Projetos, equipes e contexto organizacional |
-| ✅ **Tasks** | Gestão de tarefas, status e workflow |
-| 🤖 **AI Engine** | Integração com IA e geração inteligente de tarefas |
-| 📊 **Analytics** | Métricas, produtividade e insights |
+| **Workspace** | Organização dos contextos de trabalho/projetos |
+| **Tasks** | Criação, listagem e conclusão de tarefas |
+| **AI Engine** | Geração de planos a partir de objetivos |
+| **Analytics** | Futuro módulo para métricas e insights |
+| **Identity** | Futuro módulo de usuários e autenticação |
 
 ---
 
 ## ⚙️ Stack Tecnológica
 
-### 🧩 Backend
+### Backend
+
 - .NET 8
+- ASP.NET Core Web API
 - Clean Architecture
-- Domain-Driven Design (DDD)
-- CQRS *(implementado nas próximas etapas)*
-
-### 🎨 Frontend
-- React
-- Vite
-- TypeScript
-
-### 🗄️ Banco de Dados
+- Domain-Driven Design
+- CQRS com MediatR
+- FluentValidation
+- EF Core
 - PostgreSQL
+- Serilog
+- Health Checks
 
-### ☁️ Infraestrutura
+### Testes
+
+- xUnit
+- FluentAssertions
+- Moq
+- Testcontainers
+- PostgreSQL containerizado para testes de integração
+
+### Infraestrutura
+
 - Docker
-- Microsoft Azure
+- Docker Compose
+- GitHub Actions
+- GitHub Container Registry
 
-### 🤖 Inteligência Artificial
-- OpenAI API
+### IA
 
----
-
-## 🎯 Objetivo do Projeto
-
-Este projeto foi criado com o propósito de:
-
-- aplicar arquitetura moderna de software
-- desenvolver habilidades avançadas em System Design
-- integrar Inteligência Artificial em aplicações reais
-- evoluir tecnicamente do nível **Pleno** para **Senior Software Engineer**
+- Provider fake implementado para simular geração de planos;
+- arquitetura preparada para futura integração com provedores reais como Gemini, OpenAI ou outros.
 
 ---
 
-## 🏗️ Arquitetura (High-Level)
+## 🏗️ Arquitetura
 
-DevFlow AI
-│
-├── API
-├── Domain
-├── Application
-├── Infrastructure
-└── Modules
-├── Identity
-├── Workspace
-├── Tasks
-├── AI
-└── Analytics
+O projeto segue uma arquitetura em camadas:
 
-
----
-
-## 🚧 Status do Projeto
-
-🟡 Em desenvolvimento ativo  
-📚 Projeto orientado a aprendizado contínuo e evolução arquitetural.
-
----
-
-## 📈 Roadmap
-
-- [x] Definição da visão do produto
-- [x] Modelagem dos domínios
-- [ ] Estrutura base do backend
-- [ ] Integração com IA
-- [ ] Dashboard inteligente
-- [ ] Deploy em cloud
-
----
-
-## 👨‍💻 Autor
-
-**Igor Souza**  
-Software Developer | .NET | React | Clean Architecture
-
-🔗 LinkedIn: https://www.linkedin.com/in/igor-souza-4b16001aa/
-
----
-
-⭐ *Este projeto representa minha jornada de crescimento profissional e estudo contínuo em engenharia de software moderna.*
+```text
+DevFlowAI
+├── DevFlowAI.API
+├── DevFlowAI.Application
+├── DevFlowAI.Domain
+├── DevFlowAI.Infrastructure
+├── DevFlowAI.Domain.Tests
+├── DevFlowAI.Application.Tests
+└── DevFlowAI.Infrastructure.Tests

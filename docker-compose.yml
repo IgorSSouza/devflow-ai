@@ -20,7 +20,9 @@ services:
     container_name: devflow-api
     environment:
       ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=devflowai;Username=devflow;Password=devflow123
+      AI__Provider: Fake
     ports:
       - "8080:8080"
     depends_on:
